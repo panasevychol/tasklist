@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+
+  back:
+    build: ./back
+    command: bash -c "FLASK_APP=main.py FLASK_DEBUG=1 python -m flask run --host 0.0.0.0"
+    volumes:
+      - ./back:/code/
+    ports:
+      - "5000:5000"
