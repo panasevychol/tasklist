@@ -40,18 +40,22 @@ gulp.task('html', function(done) {
 
 gulp.task('build', gulp.parallel('css', 'js', 'html'));
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function(done) {
   browserSync.init(null, {
     open: false,
     server: {
       baseDir: 'dist'
     }
   });
+  done();
 });
 
-gulp.task('start', gulp.series('build', 'browser-sync'), function(done) {
+gulp.task('watch', function(done) {
   devMode = true;
-  gulp.watch(['./src/css/**/*.css'], ['css']);
-  gulp.watch(['./src/js/**/*.js'], ['js']);
-  gulp.watch(['./src/templates/**/*.html'], ['html']);
-});
+  gulp.watch('./src/css/**/*.css', gulp.parallel('css'));
+  gulp.watch('./src/js/**/*.js', gulp.parallel('js'));
+  gulp.watch('./src/templates/**/*.html', gulp.parallel('html'));
+  done();
+})
+
+gulp.task('start', gulp.parallel('build', 'browser-sync', 'watch'));
