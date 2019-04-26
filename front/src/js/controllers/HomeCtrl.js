@@ -1,4 +1,4 @@
-angular.module('helloWorldApp')
+angular.module('tasklistApp')
 .controller('HomeCtrl', [
   '$scope',
   function($scope) {

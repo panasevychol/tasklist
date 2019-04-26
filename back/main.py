@@ -1,5 +1,6 @@
 from flask import Flask, request
 from flask_admin import Admin
+from flask_cors import CORS
 from flask_restful import Resource, Api
 from flask_sqlalchemy import SQLAlchemy
 from flask_admin.contrib.sqla import ModelView
@@ -7,6 +8,7 @@ from flask_admin.contrib.sqla import ModelView
 
 app = Flask(__name__)
 app.secret_key = b'Really super secret'
+CORS(app)
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'

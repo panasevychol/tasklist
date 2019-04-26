@@ -30,7 +30,7 @@ gulp.task('js', function(done) {
 });
 
 gulp.task('html', function(done) {
-  return gulp.src('./src/templates/**/*.html')
+  gulp.src('./src/templates/**/*.html')
     .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.reload({
       stream: true
