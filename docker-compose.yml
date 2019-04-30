@@ -7,7 +7,7 @@ services:
 
   back:
     build: ./back
-    command: bash -c "FLASK_APP=main.py FLASK_DEBUG=1 python -m flask run --host 0.0.0.0"
+    command: bash -c "FLASK_APP=tasklist FLASK_DEBUG=1 python -m flask run --host 0.0.0.0"
     volumes:
       - ./back:/code/
     ports:
