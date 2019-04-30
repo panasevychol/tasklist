@@ -1,13 +1,17 @@
-angular.module('tasklistApp', [
+const app = angular.module('tasklistApp', [
   'ngRoute'
 ])
-.config([
-  '$routeProvider',
-  function($routeProvider) {
+
+app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider
     .when('/', {
-      templateUrl: 'views/home.html',
-      controller: 'HomeCtrl'
+      templateUrl: 'views/welcome.html'
+    })
+    .when('/tasklist/:taskListId', {
+      template: '<task-list></task-list>'
+    })
+    .otherwise({
+      redirectTo: '/'
     });
   }
 ]);

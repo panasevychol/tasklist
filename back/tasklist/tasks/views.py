@@ -59,6 +59,14 @@ class TaskAPIView(Resource):
 
     def patch(self, id):
         task = get_object_or_404(Task, id=id)
-        task.task_finished = request.get_json()['task_finished']
+        json_response = request.get_json()
+        name, task_finished = [
+            json_response.get(param) for param in ('name', 'task_finished')
+        ]
+        for param in ('name', 'task_finished'):
+            value = json_response.get(param)
+            if value is not None:
+                setattr(task, param, value)
+
         db.session.commit()
         return serialize_task(task)

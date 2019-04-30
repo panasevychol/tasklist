@@ -1,0 +1,50 @@
+<div class="container border">
+
+  <div class="row p-2">
+    <div class="col-sm-11">
+      <h1>{{taskList.name}}</h1>
+    </div>
+
+    <div class="col-sm-1">
+      <add-task task-list-id="taskList.id"></add-task>
+    </div>
+  </div>
+
+  <div class="row p-1">
+  </div>
+
+  <div class="row p-1">
+    <update-task task="taskToUpdate"></update-task>
+  </div>
+
+  <div ng-repeat="task in taskList.tasks">
+    <div class="p-3 row bg-light">
+      <div class="col-sm-8">
+        {{task.name}}
+      </div>
+
+      <div class="col-sm-2">
+
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="customSwitch1{{task.id}}" ng-model="task.task_finished" ng-change="$ctrl.setTaskStatus(task)">
+          <label class="custom-control-label" for="customSwitch1{{task.id}}">Finished</label>
+        </div>
+
+        <!-- <span>Finished</span>
+        <input type="checkbox" name="Finished" > -->
+      </div>
+
+      <div class="col-sm-1">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#updateTaskModal" ng-click="$ctrl.initTaskUpdate(task)">
+          Edit
+        </button>
+      </div>
+
+      <div class="col-sm-1">
+        <button type="button" class="btn btn-outline-danger" name="button" ng-click="$ctrl.deleteTask(task)">Delete</button>
+      </div>
+
+    </div>
+  </div>
+</div>
