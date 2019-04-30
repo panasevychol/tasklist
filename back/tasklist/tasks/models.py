@@ -24,6 +24,3 @@ class Task(db.Model):
 
     def __repr__(self):
         return '<Task %r>' % self.name
-
-
-db.create_all()
