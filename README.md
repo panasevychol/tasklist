@@ -20,7 +20,7 @@ To run the app on macOS or Linux:
 
 ### Front
 - `/` - welcome screen
-- `/tasklist/1` - Task List view
+- `/tasklist/<int:id>` - Task List view
 
 ### Back:
 - `/api/task-lists` - create Task List API view. Method `POST`
