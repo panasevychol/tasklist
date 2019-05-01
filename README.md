@@ -22,7 +22,7 @@ To run the app on macOS or Linux:
 - `/` - welcome screen
 - `/tasklist/<int:id>` - Task List view
 
-### Back:
+### Back
 - `/api/task-lists` - create Task List API view. Method `POST`
 - `/api/task-lists/<int:id>` - retrieve-update-destroy Task List API view. Methods: `GET`, `PATCH`, `DELETE`
 - `/api/tasks` - create Task API view. Method `POST`
