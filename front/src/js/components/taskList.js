@@ -18,9 +18,13 @@ angular
         $http.patch(
           apiUrl + '/tasks/' + task.id, {task_finished: task.task_finished}
         ).then(function successCallback(response) {
-          console.log('Surprise!');
+          console.log(
+            `Task "${response.data.name}" status changed:
+            finished - ${response.data.task_finished}`
+          );
         }.bind(this));
       }
+
       this.deleteTask = function(task) {
         $http.delete(apiUrl + '/tasks/' + task.id).then(function successCallback(response) {
           const index = $scope.taskList.tasks.indexOf(task);
