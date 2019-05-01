@@ -8,4 +8,4 @@ from tasklist.tasks.urls import urls as tasks_urls
 api = Api(app)
 
 for resource in [*tasks_urls, ]:
-    api.add_resource(*resource)
+    api.add_resource(resource[0], '/api{}'.format(resource[1]))
